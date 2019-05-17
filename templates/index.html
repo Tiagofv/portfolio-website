@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static%}
+{% load humanize %} 
+{% block content%}
+<section class="portfolio-section section">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="heading">
+					<h3><b>Portfolio</b></h3>
+					<h6 class="font-lite-black"><b>My Projects</b></h6>
+				</div>
+			</div><!-- col-sm-4 -->
+			<div class="col-sm-8">
+				<div class="portfolioFilter clearfix margin-b-80">
+					<a href="#" data-filter="*" class="current"><b>ALL</b></a>
+					<!-- <a href="#" data-filter=".web-design"><b>WEB DESIGN</b></a>
+					<a href="#" data-filter=".branding"><b>BRANDING</b></a>
+					<a href="#" data-filter=".graphic-design"><b>GRAPHIC DESIGN</b></a> -->
+				</div><!-- portfolioFilter -->
+			</div><!-- col-sm-8 -->
+		</div><!-- row -->
+	</div><!-- container -->
+	
+	<div class="portfolioContainer">
+		
+		{% if portfolio %}
+			{% for port in portfolio%}
+		<div class="p-item web-design">
+				<figure class="imghvr-fade">
+						<img src="{{ port.main_photo.url }}" alt="{{port.description}}" data-fluidbox>
+						<figcaption>
+							<h6>{{port.title}}</h6>
+							<p>{{port.description}}</p>
+						</figcaption>
+						<a href="{{port.url}}"></a>
+					</figure>
+		</div><!-- p-item -->
+			{%endfor%}
+		{%endif%}
+	</div><!-- portfolioContainer -->
+	
+</section><!-- portfolio-section -->
+
+
+<section class="about-section section">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="heading">
+					<h3><b>About me</b></h3>
+					<h6 class="font-lite-black"><b>Who i am?</b></h6>
+				</div>
+			</div><!-- col-sm-4 -->
+			<div class="col-sm-8">
+				<p class="margin-b-50">I'm a Web developer, I love using Django to my personal projects. I also use php and nodeJs professionally. I also like running, watching series , playinng volleyball. Currently i'm studying Django and DataScience.</p>
+				
+				<div class="row">
+					<div class="col-sm-6 col-md-6 col-lg-3">
+						<div class="radial-prog-area margin-b-30">
+							<div class="radial-progress" data-prog-percent=".97">
+								<div></div>
+								<h6 class="progress-title">HTML5 & CSS3</h6>
+							</div>
+						</div><!-- radial-prog-area-->
+					</div><!-- col-sm-6-->
+				
+					<div class="col-sm-6 col-md-6 col-lg-3">
+						<div class="radial-prog-area margin-b-30">
+							<div class="radial-progress" data-prog-percent=".80">
+								<div></div>
+								<h6 class="progress-title">JavaScript</h6>
+							</div>
+						</div><!-- radial-prog-area-->
+					</div><!-- col-sm-6-->
+					
+					<div class="col-sm-6 col-md-6 col-lg-3">
+						<div class="radial-prog-area margin-b-30">
+							<div class="radial-progress" data-prog-percent=".70">
+								<div></div>
+								<h6 class="progress-title">PHP</h6>
+							</div>
+						</div><!-- radial-prog-area-->
+					</div><!-- col-sm-6-->
+					
+					<div class="col-sm-6 col-md-6 col-lg-3">
+						<div class="radial-prog-area margin-b-50">
+							<div class="radial-progress" data-prog-percent=".80">
+								<div></div>
+								<h6 class="progress-title">Django</h6>
+							</div>
+						</div><!-- radial-prog-area-->
+					</div><!-- col-sm-6-->
+				
+				</div><!-- row -->
+			</div><!-- col-sm-8 -->
+		</div><!-- row -->
+	</div><!-- container -->
+</section><!-- about-section -->
+{%if work%}
+<section class="experience-section section">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="heading">
+					<h3><b>Work Experience</b></h3>
+					<h6 class="font-lite-black"><b>PREVIOUS JOBS</b></h6>
+				</div>
+			</div><!-- col-sm-4 -->
+			<div class="col-sm-8">
+				{%for job in work %}
+				<div class="experience margin-b-50">
+					<h4><b>{{job.occupation}}</b></h4>
+					<h5 class="font-yellow"><b>{{job.place}}</b></h5>
+					<h6 class="margin-t-10">{{job.hire_end_date | timesince}}</h6>
+					<p class="font-semi-white margin-tb-30">{{job.description}} </p>
+					<!-- <ul class="list margin-b-30">
+						<li>Duis non volutpat arcu, eu mollis tellus.</li>
+						<li>Quis consequat nulla effi citur at.</li>
+						<li>Sed finibus aliquam neque sit.</li>
+					</ul> -->
+				</div><!-- experience -->
+				{%endfor%}
+			</div><!-- col-sm-8 -->
+		</div><!-- row -->
+	</div><!-- container -->
+	
+</section><!-- experience-section -->
+{%endif%}
+{%if education%}
+
+<section class="education-section section">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="heading">
+					<h3><b>Education</b></h3>
+					<h6 class="font-lite-black"><b>ACADEMIC CAREER</b></h6>
+				</div>
+			</div><!-- col-sm-4 -->
+			<div class="col-sm-8">
+				<div class="education-wrapper">
+						{% 	for edu in education %}
+					<div class="education margin-b-50">
+						<h4><b>Bacharelado</b></h4>
+						<h5 class="font-yellow"><b>{{edu.school}} - {{edu.course}}</b></h5>
+						{%if edu.until_today%}
+						<h6 class="font-lite-black margin-t-10">CURRENT</h6>
+						{% else%}
+						<h6 class="font-lite-black margin-t-10">{{edu.end_date | timesince}}</h6>
+						{%endif%}
+						<p class="margin-tb-30">{{edu.description}} </p>
+					</div><!-- education -->
+					{%endfor%}
+				</div><!-- education-wrapper -->
+			</div><!-- col-sm-8 -->
+		</div><!-- row -->
+	</div><!-- container -->
+	
+</section><!-- about-section -->
+{%endif%}
+{% if devs%}
+<section class="counter-section" id="counter">
+	<div class="container">
+		<div class="row">
+			{%for dev in devs%}
+			<div class="col-sm-6 col-md-6 col-lg-6">
+				<div class="counter margin-b-30">
+					<h1 class="title"><b><span class="counter-value" data-duration="1400" data-count="25">{{dev.completed_projects}}</span></b></h1>
+					<h5 class="desc"><b>Project Completed</b></h5>
+				</div><!-- counter -->
+			</div><!-- col-md-3-->
+			
+			<div class="col-sm-6 col-md-6 col-lg-6">
+				<div class="counter margin-b-30">
+					<h1 class="title"><b><span class="counter-value" data-duration="700" data-count="311">{{dev.satisfied}}</span></b></h1>
+					<h5 class="desc"><b>Satisfied Clients</b></h5>
+				</div><!-- counter -->
+			</div><!-- col-md-3-->
+			{%endfor%}
+			
+		</div><!-- row-->
+	</div><!-- container-->
+</section><!-- counter-section-->
+{%endif%}
+<footer>
+	<p class="copyright">
+		<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ion-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	</p>
+{% endblock%}
