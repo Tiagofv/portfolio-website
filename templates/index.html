@@ -142,7 +142,7 @@
 				<div class="education-wrapper">
 						{% 	for edu in education %}
 					<div class="education margin-b-50">
-						<h4><b>Bacharelado</b></h4>
+						<h4><b>{{edu.type_of_graduation}}</b></h4>
 						<h5 class="font-yellow"><b>{{edu.school}} - {{edu.course}}</b></h5>
 						{%if edu.until_today%}
 						<h6 class="font-lite-black margin-t-10">CURRENT</h6>
