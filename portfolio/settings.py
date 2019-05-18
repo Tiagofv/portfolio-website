@@ -24,7 +24,7 @@ SECRET_KEY = 'd-9k93o-nw0+5dljm7#e%87c)3k_mqjxj=bh@&nk&1-rplo=ct'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['167.99.161.80']
+ALLOWED_HOSTS = ['167.99.161.80', 'tiagobraga.dev']
 
 
 # Application definition
