@@ -22,11 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'd-9k93o-nw0+5dljm7#e%87c)3k_mqjxj=bh@&nk&1-rplo=ct'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['138.68.21.255', '.tiagobraga.dev']
 #production
-# ALLOWED_HOSTS = ['167.99.161.80', 'www.tiagobraga.dev']
+ALLOWED_HOSTS = ['138.68.21.255', '.tiagobraga.dev']
 
 
 # Application definition
