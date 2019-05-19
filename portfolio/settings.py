@@ -22,9 +22,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'd-9k93o-nw0+5dljm7#e%87c)3k_mqjxj=bh@&nk&1-rplo=ct'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['167.99.161.80', 'tiagobraga.dev']
+ALLOWED_HOSTS = ['*']
+#production
+# ALLOWED_HOSTS = ['167.99.161.80', 'www.tiagobraga.dev']
 
 
 # Application definition
@@ -79,13 +81,24 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'portfolio_new',
+#         'USER': 'postgres',
+#         'PASSWORD': 'portfolio',
+#         'HOST': 'localhost'
+#     }
+# }
+#Production
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'portfolio_new',
         'USER': 'tiago',
         'PASSWORD': 'portfolio',
-        'HOST': 'localhost'
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
