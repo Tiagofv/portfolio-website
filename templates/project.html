@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block content%}
+{% if project.is_published%}
+<section class="btn-section section">
+	<div class="container"><span><a href="{% url 'index'%}">&larr; Back to home</a> </span></div> 
+	<div class="container">
+		
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="heading">
+						<h4><b>{{project.title}}</b></h4>
+					</div>
+				</div><!-- col-sm-4 -->
+			</div><!-- row -->
+			<div>
+				<a href="{{project.url}}" ><img src="{{project.main_photo.url}}" alt="{{project.description}}"></a>
+				<p class="mt-4">
+					{{project.description}}
+				</p>
+			</div>
+			{%for tag in project.get_tags%}
+			<span href="#" class="badge badge-success">{{tag}}</span>
+			{%endfor%}
+		</div><!-- container -->
+	</section><!-- btn-section -->
+	
+	
+{%else%}
+<div class="container text-center">
+
+	<div><p>Please come back later, this page is not ready yet.</p></div>
+	<div><span><a href="{% url 'index'%}">&larr; Back to home</a> </span></div>
+</div>
+{%endif%}
+{%endblock%}

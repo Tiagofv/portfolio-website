@@ -35,6 +35,8 @@ class Projects(models.Model):
 
     def __str__(self):
         return self.title
+    def get_tags(self):
+        return self.tags.split(",")
 class Work(models.Model):
     dev = models.ForeignKey('Developer', on_delete=models.DO_NOTHING, blank=True, default = "1")
     title = models.CharField(max_length=200, blank=True)
