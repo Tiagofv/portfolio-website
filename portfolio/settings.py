@@ -22,13 +22,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'd-9k93o-nw0+5dljm7#e%87c)3k_mqjxj=bh@&nk&1-rplo=ct'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 #production
-# DEBUG = False
+DEBUG = False
 
 #production
-# ALLOWED_HOSTS = ['138.68.21.255', '.tiagobraga.dev']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['138.68.21.255', '.tiagobraga.dev']
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,26 +83,26 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolio_new',
-        'USER': 'postgres',
-        'PASSWORD': 'portfolio',
-        'HOST': 'localhost'
-    }
-}
-#Production
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'portfolio_new',
-#         'USER': 'tiago',
+#         'USER': 'postgres',
 #         'PASSWORD': 'portfolio',
-#         'HOST': 'localhost',
-#         'PORT': '',
+#         'HOST': 'localhost'
 #     }
 # }
+#Production
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfolio_new',
+        'USER': 'tiago',
+        'PASSWORD': 'portfolio',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 
 # Password validation
