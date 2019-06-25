@@ -4,7 +4,7 @@ from .models import Projects, Developer, Education, Work
 # Create your views here.
 def index(req):
     portfolio = Projects.objects.all()
-    developer = Developer.objects.filter(id=1)
+    developer = Developer.objects.get(id=1)
     education = Education.objects.all().order_by('-begin_date')
     work = Work.objects.all().order_by('-hire_date')
     context = {

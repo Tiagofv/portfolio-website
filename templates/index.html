@@ -2,14 +2,13 @@
 {% load static%}
 {% load humanize %} 
 {% block content%}
-
 <section class="portfolio-section section">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="heading">
 					<h3><b>Portfolio</b></h3>
-					<h6 class="font-lite-black"><b>My Projects</b></h6>
+					<h6 class="font-lite-black"><b> My projects</b></h6>
 				</div>
 			</div><!-- col-sm-4 -->
 			<div class="col-sm-8">
@@ -54,8 +53,10 @@
 				</div>
 			</div><!-- col-sm-4 -->
 			<div class="col-sm-8">
-				<p class="margin-b-50">I'm a Web developer, I love using Django to my personal projects. I also use php and nodeJs professionally. I also like running, watching series , playinng volleyball. Currently i'm studying Django and DataScience.</p>
-				
+				<p class="margin-b-50">
+                    {{ devs.description }}
+                </p>
+
 				<div class="row">
 					<div class="col-sm-6 col-md-6 col-lg-3">
 						<div class="radial-prog-area margin-b-30">
@@ -160,26 +161,24 @@
 	
 </section><!-- about-section -->
 {%endif%}
-{% if devs%}
+{% if devs %}
 <section class="counter-section" id="counter">
 	<div class="container">
 		<div class="row">
-			{%for dev in devs%}
 			<div class="col-sm-6 col-md-6 col-lg-6">
 				<div class="counter margin-b-30">
-					<h1 class="title"><b><span class="counter-value" data-duration="1400" data-count="{{dev.completed_projects}}">{{dev.completed_projects}}</span></b></h1>
+					<h1 class="title"><b><span class="counter-value" data-duration="1400" data-count="{{devs.completed_projects}}">{{devs.completed_projects}}</span></b></h1>
 					<h5 class="desc"><b>Project Completed</b></h5>
 				</div><!-- counter -->
 			</div><!-- col-md-3-->
 			
 			<div class="col-sm-6 col-md-6 col-lg-6">
 				<div class="counter margin-b-30">
-					<h1 class="title"><b><span class="counter-value" data-duration="700" data-count="{{dev.completed_projects}}">{{dev.satisfied}}</span></b></h1>
+					<h1 class="title"><b><span class="counter-value" data-duration="700" data-count="{{devs.completed_projects}}">{{devs.satisfied}}</span></b></h1>
 					<h5 class="desc"><b>Satisfied Clients</b></h5>
 				</div><!-- counter -->
 			</div><!-- col-md-3-->
-			{%endfor%}
-			
+
 		</div><!-- row-->
 	</div><!-- container-->
 </section><!-- counter-section-->

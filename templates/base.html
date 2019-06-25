@@ -7,28 +7,28 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
-	
-	
+
+
 	<!-- Font -->
-	
+
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700%7CAllura" rel="stylesheet">
-	
+
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="{% static 'css/imagehover.css-master/css/imagehover.min.css'%}">
 
 	<link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
 
 	<link href="{% static 'css/ionicons.css' %}" rel="stylesheet">
-	
+
 	<link href="{% static 'css/fluidbox.min.css' %}" rel="stylesheet">
-	
+
 	<link href="{% static '01-cv-portfolio/css/styles.css' %}" rel="stylesheet">
-	
+
 	<link href="{% static '01-cv-portfolio/css/responsive.css' %}" rel="stylesheet">
-	
+
 </head>
 <body>
-	
+
 	<header>
 		<div class="container">
 			<div class="heading-wrapper">
@@ -42,7 +42,7 @@
 							</div><!-- right-area -->
 						</div><!-- info -->
 					</div><!-- col-sm-4 -->
-					
+
 					<div class="col-sm-6 col-md-6 col-lg-4">
 						<div class="info">
 							<i class="icon ion-ios-telephone-outline"></i>
@@ -52,7 +52,7 @@
 							</div><!-- right-area -->
 						</div><!-- info -->
 					</div><!-- col-sm-4 -->
-					
+
 					<div class="col-sm-6 col-md-6 col-lg-4">
 						<div class="info">
 							<i class="icon ion-ios-chatboxes-outline"></i>
@@ -64,7 +64,6 @@
 					</div><!-- col-sm-4 -->
 				</div><!-- row -->
 			</div><!-- heading-wrapper -->
-			{%for dev in devs%}
 			<a class="downlad-btn" href="{{dev.cv.url}}" target='_blank'>See CV</a>
 		</div><!-- container -->
 	</header>
@@ -86,7 +85,6 @@
 						<ul class="social-icons">
 							<li><a href="{{dev.linked_in}}"><i class="ion-social-linkedin"></i></a></li>
 						</ul>
-						{%endfor%}
 					</div><!-- intro -->
 				</div><!-- col-sm-8 -->
 			</div><!-- row -->

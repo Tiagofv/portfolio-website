@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from django.utils.translation import ugettext_lazy as _
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,11 +25,11 @@ SECRET_KEY = 'd-9k93o-nw0+5dljm7#e%87c)3k_mqjxj=bh@&nk&1-rplo=ct'
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 #production
-DEBUG = False
+DEBUG = True
 
 #production
-ALLOWED_HOSTS = ['138.68.21.255', '.tiagobraga.dev']
-# ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['138.68.21.255', '.tiagobraga.dev']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,12 +43,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages.apps.PagesConfig',
     'django.contrib.humanize'
-    
+
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -70,7 +72,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'pages.context_processors.developer'
+                'pages.context_processors.developer',
+                'django.template.context_processors.i18n',
             ],
         },
     },
@@ -83,26 +86,26 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'portfolio_new',
-#         'USER': 'postgres',
-#         'PASSWORD': 'portfolio',
-#         'HOST': 'localhost'
-#     }
-# }
-#Production
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'portfolio_new',
-        'USER': 'tiago',
+        'USER': 'postgres',
         'PASSWORD': 'portfolio',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': 'localhost'
     }
 }
+#Production
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'portfolio_new',
+#         'USER': 'tiago',
+#         'PASSWORD': 'portfolio',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
 
 
 # Password validation
@@ -127,7 +130,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
@@ -150,3 +153,16 @@ STATICFILES_DIRS = [
 # media files
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 MEDIA_URL='/media/'
+
+
+# i18n
+
+LANGUAGES = [
+  ('en', _('English')),
+  ('pt', _('Portugues')),
+  ('es', _('Spanish')),
+]
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
