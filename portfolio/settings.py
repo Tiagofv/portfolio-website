@@ -25,11 +25,11 @@ SECRET_KEY = 'd-9k93o-nw0+5dljm7#e%87c)3k_mqjxj=bh@&nk&1-rplo=ct'
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 #production
-DEBUG = True
+DEBUG = False
 
 #production
-# ALLOWED_HOSTS = ['138.68.21.255', '.tiagobraga.dev']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['138.68.21.255', '.tiagobraga.dev']
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
+    # 'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -73,7 +73,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'pages.context_processors.developer',
-                'django.template.context_processors.i18n',
+                # 'django.template.context_processors.i18n',
             ],
         },
     },
@@ -156,13 +156,13 @@ MEDIA_URL='/media/'
 
 
 # i18n
-
-LANGUAGES = [
-  ('en', _('English')),
-  ('pt', _('Portugues')),
-  ('es', _('Spanish')),
-]
-
-LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale'),
-)
+#
+# LANGUAGES = [
+#   ('en', _('English')),
+#   ('pt', _('Portugues')),
+#   ('es', _('Spanish')),
+# ]
+#
+# LOCALE_PATHS = (
+#     os.path.join(BASE_DIR, 'locale'),
+# )
